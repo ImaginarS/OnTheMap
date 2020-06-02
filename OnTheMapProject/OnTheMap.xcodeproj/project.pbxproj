@@ -7,23 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD49248C2485E899006A1547 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD49248B2485E899006A1547 /* Extension.swift */; };
+		CD72CFE2247757C000D35002 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD72CFE1247757C000D35002 /* OTMClient.swift */; };
+		CD72CFE424782AA600D35002 /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD72CFE324782AA600D35002 /* UserDataResponse.swift */; };
+		CD72CFE6247EF6E800D35002 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD72CFE5247EF6E800D35002 /* StudentLocations.swift */; };
+		CD8EBDA42486976000EC8974 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8EBDA32486976000EC8974 /* LogoutRequest.swift */; };
 		CDC211A4247638E7006CB478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC211A3247638E7006CB478 /* AppDelegate.swift */; };
 		CDC211A6247638E7006CB478 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC211A5247638E7006CB478 /* SceneDelegate.swift */; };
-		CDC211A8247638E7006CB478 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC211A7247638E7006CB478 /* ViewController.swift */; };
 		CDC211AB247638E7006CB478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC211A9247638E7006CB478 /* Main.storyboard */; };
 		CDC211AD247638EE006CB478 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC211AC247638EE006CB478 /* Assets.xcassets */; };
 		CDC211B0247638EE006CB478 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC211AE247638EE006CB478 /* LaunchScreen.storyboard */; };
+		CDD66808247649C600BADBFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD66807247649C600BADBFC /* LoginViewController.swift */; };
+		CDD6680B2476F40900BADBFC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6680A2476F40900BADBFC /* MapViewController.swift */; };
+		CDD6680F2476FD0E00BADBFC /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6680E2476FD0E00BADBFC /* LocationListViewController.swift */; };
+		CDD66811247700FE00BADBFC /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD66810247700FE00BADBFC /* LoginRequest.swift */; };
+		CDD6681524773F2F00BADBFC /* RequestSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6681424773F2F00BADBFC /* RequestSessionResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD49248B2485E899006A1547 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		CD72CFE1247757C000D35002 /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		CD72CFE324782AA600D35002 /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
+		CD72CFE5247EF6E800D35002 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
+		CD8EBDA32486976000EC8974 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
 		CDC211A0247638E6006CB478 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC211A3247638E7006CB478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC211A5247638E7006CB478 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CDC211A7247638E7006CB478 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CDC211AA247638E7006CB478 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDC211AC247638EE006CB478 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC211AF247638EE006CB478 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDC211B1247638EE006CB478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDD66807247649C600BADBFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CDD6680924764C4100BADBFC /* OnTheMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnTheMap.entitlements; sourceTree = "<group>"; };
+		CDD6680A2476F40900BADBFC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CDD6680E2476FD0E00BADBFC /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		CDD66810247700FE00BADBFC /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		CDD6681424773F2F00BADBFC /* RequestSessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSessionResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +75,73 @@
 		CDC211A2247638E6006CB478 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				CDD6680924764C4100BADBFC /* OnTheMap.entitlements */,
 				CDC211A3247638E7006CB478 /* AppDelegate.swift */,
 				CDC211A5247638E7006CB478 /* SceneDelegate.swift */,
-				CDC211A7247638E7006CB478 /* ViewController.swift */,
+				CDC211B1247638EE006CB478 /* Info.plist */,
+				CDC211B724763BDB006CB478 /* Model */,
+				CDC211B824763BF9006CB478 /* Controllers */,
+				CDC211BE24763CF4006CB478 /* Assets */,
+			);
+			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		CDC211B724763BDB006CB478 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CDC211BB24763C77006CB478 /* Client */,
+				CDC211BC24763C84006CB478 /* Requests */,
+				CDC211BD24763C8D006CB478 /* Responses */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CDC211B824763BF9006CB478 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDD66807247649C600BADBFC /* LoginViewController.swift */,
+				CDD6680A2476F40900BADBFC /* MapViewController.swift */,
+				CDD6680E2476FD0E00BADBFC /* LocationListViewController.swift */,
+				CD49248B2485E899006A1547 /* Extension.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CDC211BB24763C77006CB478 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				CD72CFE1247757C000D35002 /* OTMClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		CDC211BC24763C84006CB478 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				CDD66810247700FE00BADBFC /* LoginRequest.swift */,
+				CD8EBDA32486976000EC8974 /* LogoutRequest.swift */,
+				CD72CFE5247EF6E800D35002 /* StudentLocations.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		CDC211BD24763C8D006CB478 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				CDD6681424773F2F00BADBFC /* RequestSessionResponse.swift */,
+				CD72CFE324782AA600D35002 /* UserDataResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		CDC211BE24763CF4006CB478 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
 				CDC211A9247638E7006CB478 /* Main.storyboard */,
 				CDC211AC247638EE006CB478 /* Assets.xcassets */,
 				CDC211AE247638EE006CB478 /* LaunchScreen.storyboard */,
-				CDC211B1247638EE006CB478 /* Info.plist */,
 			);
-			path = OnTheMap;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +215,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDC211A8247638E7006CB478 /* ViewController.swift in Sources */,
+				CDD66808247649C600BADBFC /* LoginViewController.swift in Sources */,
+				CD8EBDA42486976000EC8974 /* LogoutRequest.swift in Sources */,
+				CD49248C2485E899006A1547 /* Extension.swift in Sources */,
+				CD72CFE2247757C000D35002 /* OTMClient.swift in Sources */,
 				CDC211A4247638E7006CB478 /* AppDelegate.swift in Sources */,
+				CD72CFE6247EF6E800D35002 /* StudentLocations.swift in Sources */,
+				CDD6681524773F2F00BADBFC /* RequestSessionResponse.swift in Sources */,
+				CDD6680F2476FD0E00BADBFC /* LocationListViewController.swift in Sources */,
+				CDD6680B2476F40900BADBFC /* MapViewController.swift in Sources */,
+				CD72CFE424782AA600D35002 /* UserDataResponse.swift in Sources */,
+				CDD66811247700FE00BADBFC /* LoginRequest.swift in Sources */,
 				CDC211A6247638E7006CB478 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,9 +370,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = STUF6F5M42;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,6 +382,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Squel.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,9 +392,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = STUF6F5M42;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,6 +404,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Squel.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

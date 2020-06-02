@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct LogoutRequest: Codable {
+    let session: SignOut
+}
+struct SignOut: Codable {
+    let id: String
+    let expiration: String
+}
+

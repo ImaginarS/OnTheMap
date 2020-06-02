@@ -9,15 +9,16 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+class TabBar: UITabBarController {
     
     @IBAction func logoutTapped(_ sender: UIBarButtonItem) {
-//        TMDBClient.logout {
-//            DispatchQueue.main.async {
-//                self.dismiss(animated: true, completion: nil)
-//            }
-//        }
+        OTMClient.logout {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
-    
 }
+
+
 
