@@ -3,5 +3,5 @@
 
 Upcoming Features:
 
-Add User's location Pin
-Update the Users location Pin
+1. Add User's location Pin
+2. Update the Users location Pin
