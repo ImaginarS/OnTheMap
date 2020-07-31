@@ -6,10 +6,9 @@
 //  Copyright © 2020 Udacity. All rights reserved.
 //
 
-import Foundation
 
-// MARK: - UserInformation
-struct UserInformation: Codable {
+// MARK: - User Data
+struct UserData: Codable {
     let lastName: String
     let socialAccounts: [String]
     let mailingAddress: String??

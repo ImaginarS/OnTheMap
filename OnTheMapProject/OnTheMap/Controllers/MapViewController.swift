@@ -10,20 +10,17 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-
-    @IBOutlet weak var mapView: MKMapView!
-        
-//    @objc func startOver() {
-//        if let navigationController = self.navigationController {
-//            navigationController.popToRootViewController(animated: true)
-//        }
-//    }
-     
+    var location: LocationsStore?
+    
+    //MARK: - IBOutlets
+    @IBOutlet private var mapView: MKMapView!
+    
+    //MARK: - UIViewController life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         
-    
         OTMClient.getStudentsLocations() {(result, error) in
             DispatchQueue.main.async {
                 if error != nil {
@@ -33,32 +30,37 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     return
                 }
                 
-                StudentLocation.lastFetched = result
-                var map = [MKPointAnnotation]()
-                
                 guard let result = result else {
                     return
                 }
-
-                for location in result{
-                    let long = CLLocationDegrees(location.longitude )
-                    let lat = CLLocationDegrees(location.latitude )
-                    let cords = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    let mediaURL = location.mediaURL
-                    let firstName = location.firstName
-                    let lastName = location.lastName
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = cords
-                    annotation.title = "\(String(describing: firstName)) \(String(describing: lastName))"
-                    annotation.subtitle = mediaURL
-                    map.append(annotation)
-                }
+                let map = self.markMap(withLocations: result)
                 self.mapView.addAnnotations(map)
-            }}
+            }
+        }
     }
+    
+    
+    func markMap(withLocations studentLocations: [StudentLocation]) ->
+        [MKPointAnnotation] {
+            return studentLocations.map { (location) -> MKPointAnnotation in
+                
+                let long = CLLocationDegrees(location.longitude )
+                let lat = CLLocationDegrees(location.latitude )
+                let cords = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                let mediaURL = location.mediaURL
+                let firstName = location.firstName
+                let lastName = location.lastName
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = cords
+                annotation.title = "\(String(describing: firstName)) \(String(describing: lastName))"
+                annotation.subtitle = mediaURL
+                return annotation
+            }
+    }
+    
     // MARK: - MKMapViewDelegate
-
+    
     // method in TableViewDataSource.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -79,8 +81,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return pinView
     }
     
-    // This delegate method is implemented to respond to taps. It opens the system browser
-    // to the URL specified in the annotationViews subtitle property.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             if let url = URL(string: (view.annotation?.subtitle ?? "") ?? ""){
@@ -88,6 +88,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
-    
 }

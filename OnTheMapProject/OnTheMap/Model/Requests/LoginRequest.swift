@@ -6,13 +6,17 @@
 //  Copyright © 2020 Udacity. All rights reserved.
 //
 
-import Foundation
-
+// MARK: - LoginRequest
 struct LoginRequest: Codable {
     let udacity: SignIn
 }
+
+// MARK: - SignIn
 struct SignIn: Codable {
     let username: String
     let password: String
 }
+
+
+
 

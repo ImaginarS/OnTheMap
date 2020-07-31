@@ -6,11 +6,12 @@
 //  Copyright © 2020 Udacity. All rights reserved.
 //
 
-import Foundation
-
+// MARK: - LogoutRequest
 struct LogoutRequest: Codable {
     let session: SignOut
 }
+
+// MARK: - SignOut
 struct SignOut: Codable {
     let id: String
     let expiration: String
