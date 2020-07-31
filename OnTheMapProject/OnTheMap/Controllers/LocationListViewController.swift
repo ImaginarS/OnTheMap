@@ -8,11 +8,9 @@
 
 import UIKit
 
-
-
 class LocationListViewController: UITableViewController  {
     
-    var locations = StudentLocation.lastFetched
+    var location = LocationsStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +19,15 @@ class LocationListViewController: UITableViewController  {
         tableView.dataSource = self
         
         OTMClient.getStudentsLocations() {(result, error) in
+            if error != nil {
+                let alert = UIAlertController(title: "Fail", message: "sorry, we could not fetch data", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                print("error")
+                return
+            }
+            
             DispatchQueue.main.async {
-                if error != nil {
-                    let alert = UIAlertController(title: "Fail", message: "sorry, we could not fetch data", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    return
-                }
-                
-                StudentLocation.lastFetched = result
-                self.locations.self = result
+                self.location.lastFetched = result
                 self.tableView.reloadData()
             }
         }
@@ -44,65 +42,17 @@ class LocationListViewController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return locations?.count ?? 0
+        return location.lastFetched?.count ?? 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
         
-        let locations = StudentLocation.lastFetched?[indexPath.row]
+        let locations = location.lastFetched?[indexPath.row]
         cell.textLabel?.text = "\(locations?.firstName ?? "") \(locations?.lastName ?? "")"
-        
         cell.detailTextLabel?.text = locations?.mapString
         
         return cell
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

@@ -6,25 +6,25 @@
 //  Copyright © 2020 Udacity. All rights reserved.
 //
 
-import Foundation
-
+// MARK: - Result
 struct Result: Codable {
-    let results: [StudentLocation]?
+    let results: [StudentLocation]
 }
 
+// MARK: - ResultElement
 struct StudentLocation: Codable {
-    static var lastFetched: [StudentLocation]?
-    
+    let createdAt: String
     let firstName: String
     let lastName: String
-    let longitude: Float
-    let latitude: Float
-    let mapString: String
-    let mediaURL: String
-    let objectId: String
-    let uniqueKey: String
-    let createdAt: String
-    let updatedAt: String
-    
+    let latitude, longitude: Float
+    let mapString, mediaURL, objectId, uniqueKey, updatedAt: String
 }
+
+struct LocationsStore {
+    var lastFetched: [StudentLocation]?
+}
+
+
+
+
 
