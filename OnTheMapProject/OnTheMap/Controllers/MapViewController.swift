@@ -9,7 +9,8 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, Storyboarded {
+    
     var location: LocationsStore?
     
     //MARK: - IBOutlets
@@ -89,3 +90,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
 }
+

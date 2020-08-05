@@ -8,8 +8,9 @@
 
 import UIKit
 
-class LocationListViewController: UITableViewController  {
+class LocationListViewController: UITableViewController, Storyboarded  {
     
+    weak var coordinator: MainCoordinator?
     var location = LocationsStore()
     
     override func viewDidLoad() {
