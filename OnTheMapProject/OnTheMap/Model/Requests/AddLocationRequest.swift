@@ -6,11 +6,6 @@
 //  Copyright © 2020 Udacity. All rights reserved.
 //
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let newLocation = try? newJSONDecoder().decode(NewLocation.self, from: jsonData)
-
 // MARK: - NewLocation
 struct NewLocation: Codable {
     let uniqueKey, firstName, lastName, mapString: String

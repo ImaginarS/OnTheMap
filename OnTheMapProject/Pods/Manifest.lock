@@ -17,9 +17,8 @@ PODS:
     - FBSDKCoreKit (~> 5.0)
 
 DEPENDENCIES:
+  - FacebookCore
   - FacebookLogin
-  - FBSDKCoreKit
-  - FBSDKLoginKit
 
 SPEC REPOS:
   trunk:
@@ -34,6 +33,6 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
 
-PODFILE CHECKSUM: 1914ea19c4a473e122b5722060a38b7d746acb4f
+PODFILE CHECKSUM: 4b46a2997b6674e7c8ad54ce81164220f83d673a
 
 COCOAPODS: 1.9.3

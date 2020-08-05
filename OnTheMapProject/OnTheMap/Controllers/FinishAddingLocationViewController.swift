@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 import MapKit
 
-class FinishAddingLocationViewController: UIViewController {
+class FinishAddingLocationViewController: UIViewController , Storyboarded{
     
     @IBOutlet weak var addLocationMap: MKMapView!
     var studentInfo: NewLocation?
     var model: UserData?
     var savedObject: UserInformation?
+    weak var coordinator: MainCoordinator?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +42,8 @@ class FinishAddingLocationViewController: UIViewController {
     func handleResponse(success: Bool, error: Error?) {
         if success {
             DispatchQueue.main.async {
-                let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-                self.present(mapVC, animated: true, completion: nil)
+                let mapVC = MainTabBarControllerViewController.instantiate()
+                self.navigationController?.pushViewController(mapVC,animated: false)
             }
         }
         else {

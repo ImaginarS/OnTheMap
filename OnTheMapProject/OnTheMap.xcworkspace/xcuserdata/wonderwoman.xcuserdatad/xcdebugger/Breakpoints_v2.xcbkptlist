@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9044A2E0-5438-4297-8166-7B49CC950E31"
+            uuid = "8FA66C8D-1791-4AC7-9392-EF59DC2995DC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Controllers/FinishAddingLocationViewController.swift"
+            filePath = "OnTheMap/Controllers/Coordinators/MainCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "043B0B68-B79F-4930-898C-B616C41BA1F4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/FacebookLogin/Sources/Login/LoginManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "init(result:error:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewStudentsLocations()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

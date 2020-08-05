@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07DA537822E7C29BF389B9A7 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA0AD638ABAA5DD2B0CE4F2 /* Pods_OnTheMap.framework */; };
+		519DE6DE315D87210DCC0750 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550740B09E0574DFBD8E079F /* Pods_OnTheMap.framework */; };
+		CD18640D24D8EA5A008C4DCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18640A24D8EA5A008C4DCB /* Coordinator.swift */; };
+		CD18640E24D8EA5A008C4DCB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18640B24D8EA5A008C4DCB /* MainCoordinator.swift */; };
+		CD18640F24D8EA5A008C4DCB /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18640C24D8EA5A008C4DCB /* Storyboarded.swift */; };
 		CD49248C2485E899006A1547 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD49248B2485E899006A1547 /* TabBar.swift */; };
 		CD581914248F0FE500B3686A /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD581913248F0FE500B3686A /* AddLocationViewController.swift */; };
 		CD58197624B4168600B3686A /* UserInformationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD58197524B4168500B3686A /* UserInformationResponse.swift */; };
@@ -19,7 +22,7 @@
 		CD72CFE424782AA600D35002 /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD72CFE324782AA600D35002 /* UserDataResponse.swift */; };
 		CD72CFE6247EF6E800D35002 /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD72CFE5247EF6E800D35002 /* StudentLocations.swift */; };
 		CD8EBDA42486976000EC8974 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8EBDA32486976000EC8974 /* LogoutRequest.swift */; };
-		CDB1231724B4E7200005707B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB1231624B4E7200005707B /* Location.swift */; };
+		CD9E595924D68C0A006ACECE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E595824D68C0A006ACECE /* Extensions.swift */; };
 		CDC211A4247638E7006CB478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC211A3247638E7006CB478 /* AppDelegate.swift */; };
 		CDC211A6247638E7006CB478 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC211A5247638E7006CB478 /* SceneDelegate.swift */; };
 		CDC211AB247638E7006CB478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC211A9247638E7006CB478 /* Main.storyboard */; };
@@ -33,8 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		848432A895F7463F244437AA /* Pods-OnTheMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.release.xcconfig"; path = "Target Support Files/Pods-OnTheMap/Pods-OnTheMap.release.xcconfig"; sourceTree = "<group>"; };
-		BDA0AD638ABAA5DD2B0CE4F2 /* Pods_OnTheMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		550740B09E0574DFBD8E079F /* Pods_OnTheMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD18640A24D8EA5A008C4DCB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CD18640B24D8EA5A008C4DCB /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CD18640C24D8EA5A008C4DCB /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		CD49248B2485E899006A1547 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		CD581913248F0FE500B3686A /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		CD58197524B4168500B3686A /* UserInformationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationResponse.swift; sourceTree = "<group>"; };
@@ -46,7 +51,7 @@
 		CD72CFE324782AA600D35002 /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
 		CD72CFE5247EF6E800D35002 /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 		CD8EBDA32486976000EC8974 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
-		CDB1231624B4E7200005707B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		CD9E595824D68C0A006ACECE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CDC211A0247638E6006CB478 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC211A3247638E7006CB478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC211A5247638E7006CB478 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +65,8 @@
 		CDD6680E2476FD0E00BADBFC /* LocationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		CDD66810247700FE00BADBFC /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		CDD6681424773F2F00BADBFC /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		E69E29DD94BB7CCFF252EFB1 /* Pods-OnTheMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.debug.xcconfig"; path = "Target Support Files/Pods-OnTheMap/Pods-OnTheMap.debug.xcconfig"; sourceTree = "<group>"; };
+		E92948A9E03472651DDF1974 /* Pods-OnTheMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.release.xcconfig"; path = "Target Support Files/Pods-OnTheMap/Pods-OnTheMap.release.xcconfig"; sourceTree = "<group>"; };
+		EAD093ECE9A603D0097B2EBA /* Pods-OnTheMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.debug.xcconfig"; path = "Target Support Files/Pods-OnTheMap/Pods-OnTheMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07DA537822E7C29BF389B9A7 /* Pods_OnTheMap.framework in Frameworks */,
+				519DE6DE315D87210DCC0750 /* Pods_OnTheMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,18 +84,20 @@
 		7E91D3FD4BFB5721ACA8B871 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E69E29DD94BB7CCFF252EFB1 /* Pods-OnTheMap.debug.xcconfig */,
-				848432A895F7463F244437AA /* Pods-OnTheMap.release.xcconfig */,
+				EAD093ECE9A603D0097B2EBA /* Pods-OnTheMap.debug.xcconfig */,
+				E92948A9E03472651DDF1974 /* Pods-OnTheMap.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		ABCE75DB60D86D2132D0276D /* Frameworks */ = {
+		CD3351C824D4B41C00A2B12F /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				BDA0AD638ABAA5DD2B0CE4F2 /* Pods_OnTheMap.framework */,
+				CD18640A24D8EA5A008C4DCB /* Coordinator.swift */,
+				CD18640C24D8EA5A008C4DCB /* Storyboarded.swift */,
+				CD18640B24D8EA5A008C4DCB /* MainCoordinator.swift */,
 			);
-			name = Frameworks;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		CDC21197247638E6006CB478 = {
@@ -98,7 +106,7 @@
 				CDC211A2247638E6006CB478 /* OnTheMap */,
 				CDC211A1247638E6006CB478 /* Products */,
 				7E91D3FD4BFB5721ACA8B871 /* Pods */,
-				ABCE75DB60D86D2132D0276D /* Frameworks */,
+				D64F72F18C4DB8DFBD49081A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,12 +145,14 @@
 		CDC211B824763BF9006CB478 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CD3351C824D4B41C00A2B12F /* Coordinators */,
 				CDD66807247649C600BADBFC /* LoginViewController.swift */,
 				CD581913248F0FE500B3686A /* AddLocationViewController.swift */,
 				CD6DFDFC24D0809100E24FA0 /* FinishAddingLocationViewController.swift */,
 				CDD6680A2476F40900BADBFC /* MapViewController.swift */,
 				CDD6680E2476FD0E00BADBFC /* LocationListViewController.swift */,
 				CD49248B2485E899006A1547 /* TabBar.swift */,
+				CD9E595824D68C0A006ACECE /* Extensions.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,7 +173,6 @@
 				CD72CFE5247EF6E800D35002 /* StudentLocations.swift */,
 				CD58197724B422B100B3686A /* AddLocationRequest.swift */,
 				CD58197924B4E0A200B3686A /* StudentInformation.swift */,
-				CDB1231624B4E7200005707B /* Location.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -189,6 +198,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		D64F72F18C4DB8DFBD49081A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				550740B09E0574DFBD8E079F /* Pods_OnTheMap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,11 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDC211B4247638EE006CB478 /* Build configuration list for PBXNativeTarget "OnTheMap" */;
 			buildPhases = (
-				10EBCC957858213B0C222636 /* [CP] Check Pods Manifest.lock */,
+				C85EEC159AFCF92E1604FF9D /* [CP] Check Pods Manifest.lock */,
 				CDC2119C247638E6006CB478 /* Sources */,
 				CDC2119D247638E6006CB478 /* Frameworks */,
 				CDC2119E247638E6006CB478 /* Resources */,
-				5EFF65C6E5D1673C56DBFE5A /* [CP] Embed Pods Frameworks */,
+				83BACAB4D2AF207BFEF998D2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,7 +275,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10EBCC957858213B0C222636 /* [CP] Check Pods Manifest.lock */ = {
+		83BACAB4D2AF207BFEF998D2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C85EEC159AFCF92E1604FF9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,23 +314,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EFF65C6E5D1673C56DBFE5A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -304,16 +321,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9E595924D68C0A006ACECE /* Extensions.swift in Sources */,
 				CD58197A24B4E0A300B3686A /* StudentInformation.swift in Sources */,
 				CDD66808247649C600BADBFC /* LoginViewController.swift in Sources */,
 				CD58197624B4168600B3686A /* UserInformationResponse.swift in Sources */,
+				CD18640F24D8EA5A008C4DCB /* Storyboarded.swift in Sources */,
 				CD8EBDA42486976000EC8974 /* LogoutRequest.swift in Sources */,
 				CD49248C2485E899006A1547 /* TabBar.swift in Sources */,
-				CDB1231724B4E7200005707B /* Location.swift in Sources */,
+				CD18640D24D8EA5A008C4DCB /* Coordinator.swift in Sources */,
 				CD6DFDFD24D0809100E24FA0 /* FinishAddingLocationViewController.swift in Sources */,
 				CD72CFE2247757C000D35002 /* OTMClient.swift in Sources */,
 				CD58197824B422B100B3686A /* AddLocationRequest.swift in Sources */,
 				CDC211A4247638E7006CB478 /* AppDelegate.swift in Sources */,
+				CD18640E24D8EA5A008C4DCB /* MainCoordinator.swift in Sources */,
 				CD6DFDFB24CF6BAA00E24FA0 /* LocationUpdate.swift in Sources */,
 				CD581914248F0FE500B3686A /* AddLocationViewController.swift in Sources */,
 				CD72CFE6247EF6E800D35002 /* StudentLocations.swift in Sources */,
@@ -464,7 +484,7 @@
 		};
 		CDC211B5247638EE006CB478 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E69E29DD94BB7CCFF252EFB1 /* Pods-OnTheMap.debug.xcconfig */;
+			baseConfigurationReference = EAD093ECE9A603D0097B2EBA /* Pods-OnTheMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
@@ -488,7 +508,7 @@
 		};
 		CDC211B6247638EE006CB478 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 848432A895F7463F244437AA /* Pods-OnTheMap.release.xcconfig */;
+			baseConfigurationReference = E92948A9E03472651DDF1974 /* Pods-OnTheMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
