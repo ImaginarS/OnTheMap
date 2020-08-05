@@ -1,5 +1,5 @@
 //
-//  TabBar.swift
+//  MainTabBarControllerViewController.swift
 //  OnTheMap
 //
 //  Created by Sandra Q on 6/1/20.
@@ -18,7 +18,6 @@ class MainTabBarControllerViewController: UITabBarController, Storyboarded {
     var objectID: UserInformation?
     
     @IBAction func logoutTapped(_ sender: UIBarButtonItem) {
-        
         OTMClient.logout {
             DispatchQueue.main.async {
                 self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -28,7 +27,6 @@ class MainTabBarControllerViewController: UITabBarController, Storyboarded {
             }
         }
     }
-    
     
     @IBAction func addPin(_ sender: Any) {
         print(OTMClient.Auth.objectId)

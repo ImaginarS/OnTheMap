@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FA66C8D-1791-4AC7-9392-EF59DC2995DC"
+            uuid = "984BE431-E75B-43E1-8E0E-078CF5A87FEF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/Controllers/Coordinators/MainCoordinator.swift"
+            filePath = "OnTheMap/Controllers/AddLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "viewStudentsLocations()"
+            landmarkName = "findLocationButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

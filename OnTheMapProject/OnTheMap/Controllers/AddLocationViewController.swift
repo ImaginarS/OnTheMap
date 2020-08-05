@@ -14,6 +14,9 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     weak var coordinator: MainCoordinator?
     var objectId: String?
     var model: UserData?
+    @IBOutlet weak var linkErrorText: UILabel!
+    @IBOutlet weak var locationErrorText: UILabel!
+    
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var locationText: UITextField!
@@ -23,6 +26,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         super.viewDidLoad()
         locationText.delegate = self
         enterWebsiteLink.delegate = self
+        
         model = OTMClient.Auth.model
         
         if OTMClient.Auth.objectId == "" {
@@ -39,11 +43,17 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     
     @IBAction func findLocationButton(_ sender: Any) {
+        guard enterWebsiteLink.text?.isValidURL == true else {
+            linkErrorText.text = "Enter a valid URL and try again."
+            linkErrorText.isHidden = false
+            return
+        }
         guard let newLocation = locationText.text else {
             return
         }
         geocodePosition(location: newLocation)
     }
+    
     
     private func geocodePosition(location: String) {
         let geocoder = CLGeocoder()
@@ -55,7 +65,10 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     private func processResponse(withPlacemarks newMarker: [CLPlacemark]?, error: Error?) {
         if error != nil {
-            locationFinderFailureAlert()
+            locationErrorText.text = "Unable to find location."
+            print("alert alert")
+            locationErrorText.isHidden = false
+           // locationFinderFailureAlert()
             return
         } else {
             var location: CLLocation?
@@ -74,19 +87,11 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddingLocationViewController") as! FinishAddingLocationViewController
 
         controller.studentInfo = buildUserInfo(coordinate)
-        
-        
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func buildUserInfo(_ coordinate: CLLocationCoordinate2D) -> NewLocation {
         let userInfo = NewLocation.init(uniqueKey: OTMClient.Auth.userID, firstName: OTMClient.Auth.firstName, lastName: OTMClient.Auth.lastName, mapString: locationText.text!, mediaURL: enterWebsiteLink.text!, latitude: coordinate.latitude, longitude: coordinate.longitude)
         return userInfo
-    }
-    
-    func locationFinderFailureAlert(){
-        let alertVC = UIAlertController(title: "Unable to find a location with that name", message: "", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertVC, animated: false, completion: nil)
     }
 }
