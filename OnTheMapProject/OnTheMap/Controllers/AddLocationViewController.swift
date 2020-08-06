@@ -16,6 +16,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     var model: UserData?
     @IBOutlet weak var linkErrorText: UILabel!
     @IBOutlet weak var locationErrorText: UILabel!
+    @IBOutlet weak var findLocationButton: UIButton!
     
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -93,13 +94,25 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     }
     
 
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        guard enterWebsiteLink.text?.isValidURL == true else {
+//            linkErrorText.text = "Enter a valid URL and try again."
+//            linkErrorText.isHidden = false
+//            return false
+//        }
+//        linkErrorText.isHidden = true
+//        return true
+//    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
         guard enterWebsiteLink.text?.isValidURL == true else {
             linkErrorText.text = "Enter a valid URL and try again."
             linkErrorText.isHidden = false
-            return false
+            findLocationButton.isEnabled = false
+            return
         }
         linkErrorText.isHidden = true
-        return true
+        findLocationButton.isEnabled = true
+        return
     }
 }
