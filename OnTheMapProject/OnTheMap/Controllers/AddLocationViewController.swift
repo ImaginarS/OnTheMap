@@ -43,15 +43,11 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     
     @IBAction func findLocationButton(_ sender: Any) {
-        guard enterWebsiteLink.text?.isValidURL == true else {
-            linkErrorText.text = "Enter a valid URL and try again."
-            linkErrorText.isHidden = false
-            return
-        }
         guard let newLocation = locationText.text else {
             return
         }
         geocodePosition(location: newLocation)
+         
     }
     
     
@@ -65,10 +61,10 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     private func processResponse(withPlacemarks newMarker: [CLPlacemark]?, error: Error?) {
         if error != nil {
+            print(error?.localizedDescription ?? "")
             locationErrorText.text = "Unable to find location."
             print("alert alert")
             locationErrorText.isHidden = false
-           // locationFinderFailureAlert()
             return
         } else {
             var location: CLLocation?
@@ -80,18 +76,30 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
             } else {
                 locationText.text = "No Matching Location Found"
             }
+            
         }
     }
     
     private func loadNewLocation(_ coordinate: CLLocationCoordinate2D) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddingLocationViewController") as! FinishAddingLocationViewController
-
         controller.studentInfo = buildUserInfo(coordinate)
+       
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func buildUserInfo(_ coordinate: CLLocationCoordinate2D) -> NewLocation {
         let userInfo = NewLocation.init(uniqueKey: OTMClient.Auth.userID, firstName: OTMClient.Auth.firstName, lastName: OTMClient.Auth.lastName, mapString: locationText.text!, mediaURL: enterWebsiteLink.text!, latitude: coordinate.latitude, longitude: coordinate.longitude)
         return userInfo
+    }
+    
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        guard enterWebsiteLink.text?.isValidURL == true else {
+            linkErrorText.text = "Enter a valid URL and try again."
+            linkErrorText.isHidden = false
+            return false
+        }
+        linkErrorText.isHidden = true
+        return true
     }
 }
