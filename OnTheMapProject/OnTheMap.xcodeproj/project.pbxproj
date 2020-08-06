@@ -11,7 +11,7 @@
 		CD18640D24D8EA5A008C4DCB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18640A24D8EA5A008C4DCB /* Coordinator.swift */; };
 		CD18640E24D8EA5A008C4DCB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18640B24D8EA5A008C4DCB /* MainCoordinator.swift */; };
 		CD18640F24D8EA5A008C4DCB /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD18640C24D8EA5A008C4DCB /* Storyboarded.swift */; };
-		CD49248C2485E899006A1547 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD49248B2485E899006A1547 /* TabBar.swift */; };
+		CD49248C2485E899006A1547 /* MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD49248B2485E899006A1547 /* MainTabBarControllerViewController.swift */; };
 		CD581914248F0FE500B3686A /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD581913248F0FE500B3686A /* AddLocationViewController.swift */; };
 		CD58197624B4168600B3686A /* UserInformationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD58197524B4168500B3686A /* UserInformationResponse.swift */; };
 		CD58197824B422B100B3686A /* AddLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD58197724B422B100B3686A /* AddLocationRequest.swift */; };
@@ -40,7 +40,7 @@
 		CD18640A24D8EA5A008C4DCB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CD18640B24D8EA5A008C4DCB /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CD18640C24D8EA5A008C4DCB /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
-		CD49248B2485E899006A1547 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		CD49248B2485E899006A1547 /* MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		CD581913248F0FE500B3686A /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		CD58197524B4168500B3686A /* UserInformationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationResponse.swift; sourceTree = "<group>"; };
 		CD58197724B422B100B3686A /* AddLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationRequest.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				CD6DFDFC24D0809100E24FA0 /* FinishAddingLocationViewController.swift */,
 				CDD6680A2476F40900BADBFC /* MapViewController.swift */,
 				CDD6680E2476FD0E00BADBFC /* LocationListViewController.swift */,
-				CD49248B2485E899006A1547 /* TabBar.swift */,
+				CD49248B2485E899006A1547 /* MainTabBarControllerViewController.swift */,
 				CD9E595824D68C0A006ACECE /* Extensions.swift */,
 			);
 			path = Controllers;
@@ -327,7 +327,7 @@
 				CD58197624B4168600B3686A /* UserInformationResponse.swift in Sources */,
 				CD18640F24D8EA5A008C4DCB /* Storyboarded.swift in Sources */,
 				CD8EBDA42486976000EC8974 /* LogoutRequest.swift in Sources */,
-				CD49248C2485E899006A1547 /* TabBar.swift in Sources */,
+				CD49248C2485E899006A1547 /* MainTabBarControllerViewController.swift in Sources */,
 				CD18640D24D8EA5A008C4DCB /* Coordinator.swift in Sources */,
 				CD6DFDFD24D0809100E24FA0 /* FinishAddingLocationViewController.swift in Sources */,
 				CD72CFE2247757C000D35002 /* OTMClient.swift in Sources */,

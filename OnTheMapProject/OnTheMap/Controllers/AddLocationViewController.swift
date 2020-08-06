@@ -14,6 +14,9 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     weak var coordinator: MainCoordinator?
     var objectId: String?
     var model: UserData?
+    @IBOutlet weak var linkErrorText: UILabel!
+    @IBOutlet weak var locationErrorText: UILabel!
+    
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var locationText: UITextField!
@@ -23,6 +26,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         super.viewDidLoad()
         locationText.delegate = self
         enterWebsiteLink.delegate = self
+        
         model = OTMClient.Auth.model
         
         if OTMClient.Auth.objectId == "" {
@@ -43,7 +47,9 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
             return
         }
         geocodePosition(location: newLocation)
+         
     }
+    
     
     private func geocodePosition(location: String) {
         let geocoder = CLGeocoder()
@@ -55,7 +61,10 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     private func processResponse(withPlacemarks newMarker: [CLPlacemark]?, error: Error?) {
         if error != nil {
-            locationFinderFailureAlert()
+            print(error?.localizedDescription ?? "")
+            locationErrorText.text = "Unable to find location."
+            print("alert alert")
+            locationErrorText.isHidden = false
             return
         } else {
             var location: CLLocation?
@@ -67,15 +76,14 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
             } else {
                 locationText.text = "No Matching Location Found"
             }
+            
         }
     }
     
     private func loadNewLocation(_ coordinate: CLLocationCoordinate2D) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddingLocationViewController") as! FinishAddingLocationViewController
-
         controller.studentInfo = buildUserInfo(coordinate)
-        
-        
+       
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -84,9 +92,14 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         return userInfo
     }
     
-    func locationFinderFailureAlert(){
-        let alertVC = UIAlertController(title: "Unable to find a location with that name", message: "", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertVC, animated: false, completion: nil)
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        guard enterWebsiteLink.text?.isValidURL == true else {
+            linkErrorText.text = "Enter a valid URL and try again."
+            linkErrorText.isHidden = false
+            return false
+        }
+        linkErrorText.isHidden = true
+        return true
     }
 }

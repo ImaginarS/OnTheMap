@@ -20,24 +20,14 @@ class LoginViewController: UIViewController, Storyboarded {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        emailTextField.text = "sandyequel@yahoo.com"
-        passwordTextField.text = "Testing12345"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addFacebookLoginButton()
     }
     
     @objc func buttonAction(_ sender: UIButton){
-        
         setLoggingIn(true)
         faceBookLogin()
-        
-
     }
     
     func addFacebookLoginButton() {
@@ -50,18 +40,22 @@ class LoginViewController: UIViewController, Storyboarded {
         DispatchQueue.main.async {
         let loginManager = LoginManager()
         loginManager.logOut() //<- Logout if there is any existing session
+
+
         loginManager.logIn(permissions: [.publicProfile], viewController: self){
             (result) in
             print(result)
             switch result {
                 case .cancelled:
                     self.setLoggingIn(false)
-                    // loginManager.logOut()
+                     loginManager.logOut()
                 case .failed(let error):
                     print(error.localizedDescription)
                     self.setLoggingIn(false)
                 case .success:
                     self.getFacebookData()
+                    self.coordinator?.viewStudentsLocations()
+                    self.setLoggingIn(false)
             }
             
         }
@@ -85,8 +79,7 @@ class LoginViewController: UIViewController, Storyboarded {
                     print(error?.localizedDescription ?? error ?? "")
                 }
             }
-            self.setLoggingIn(false)
-            self.coordinator?.viewStudentsLocations()
+
         }
     }
     }
