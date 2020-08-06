@@ -92,17 +92,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         let userInfo = NewLocation.init(uniqueKey: OTMClient.Auth.userID, firstName: OTMClient.Auth.firstName, lastName: OTMClient.Auth.lastName, mapString: locationText.text!, mediaURL: enterWebsiteLink.text!, latitude: coordinate.latitude, longitude: coordinate.longitude)
         return userInfo
     }
-    
 
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        guard enterWebsiteLink.text?.isValidURL == true else {
-//            linkErrorText.text = "Enter a valid URL and try again."
-//            linkErrorText.isHidden = false
-//            return false
-//        }
-//        linkErrorText.isHidden = true
-//        return true
-//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard enterWebsiteLink.text?.isValidURL == true else {
