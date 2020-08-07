@@ -170,6 +170,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="ZTF-lF-p9F" id="rvd-Eb-hGh"/>
                         <outlet property="enterWebsiteLink" destination="jjm-3u-ARE" id="luP-kq-s3T"/>
+                        <outlet property="findLocationButton" destination="CiI-7N-FGD" id="ubD-MI-kxh"/>
                         <outlet property="linkErrorText" destination="4dv-jK-hgo" id="0cA-6H-vLy"/>
                         <outlet property="locationErrorText" destination="fpI-9R-uxl" id="L0I-Gb-SxF"/>
                         <outlet property="locationText" destination="8I6-SG-Qhu" id="5MH-pk-vUp"/>
