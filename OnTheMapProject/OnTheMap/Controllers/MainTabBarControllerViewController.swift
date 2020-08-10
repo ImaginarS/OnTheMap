@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FacebookLogin
+import FacebookCore
 
 class MainTabBarControllerViewController: UITabBarController, Storyboarded {
     
@@ -18,6 +19,10 @@ class MainTabBarControllerViewController: UITabBarController, Storyboarded {
     var objectID: UserInformation?
     
     @IBAction func logoutTapped(_ sender: UIBarButtonItem) {
+        let request = GraphRequest(graphPath: "/me/permissions", parameters: [
+            "fields": "id,name"
+        ], httpMethod: HTTPMethod(rawValue: "DELETE"))
+        request.start()
         OTMClient.logout {
             DispatchQueue.main.async {
                 self.navigationController?.setNavigationBarHidden(true, animated: false)

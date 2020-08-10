@@ -10,7 +10,23 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 
-class LoginViewController: UIViewController, Storyboarded {
+class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+            let login = LoginManager()
+            login.logOut()
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let token = AccessToken.current,
+            !token.isExpired {
+            coordinator?.viewStudentsLocations()
+        } else {
+            fbLoginButton.permissions = [ "email"]
+            coordinator?.getFacebookData()
+        }
+
+    }
+    
     var fbLoginButton = FBLoginButton()
     weak var coordinator: MainCoordinator?
 
@@ -20,68 +36,15 @@ class LoginViewController: UIViewController, Storyboarded {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        fbLoginButton.delegate = self
         addFacebookLoginButton()
-    }
-    
-    @objc func buttonAction(_ sender: UIButton){
-        setLoggingIn(true)
-        faceBookLogin()
-    }
-    
-    func addFacebookLoginButton() {
-            self.fbLoginButton.frame = CGRect(x: self.view.center.x - 160 , y: 535, width: 325, height: 45)
-            self.view.addSubview(self.fbLoginButton)
-            self.fbLoginButton.addTarget(self, action: #selector(self.buttonAction(_:)), for: .touchUpInside)
-    }
-    
-    func faceBookLogin() {
-        DispatchQueue.main.async {
-        let loginManager = LoginManager()
-        loginManager.logOut() //<- Logout if there is any existing session
-
-
-        loginManager.logIn(permissions: [.publicProfile], viewController: self){
-            (result) in
-            print(result)
-            switch result {
-                case .cancelled:
-                    self.setLoggingIn(false)
-                     loginManager.logOut()
-                case .failed(let error):
-                    print(error.localizedDescription)
-                    self.setLoggingIn(false)
-                case .success:
-                    self.getFacebookData()
-                    self.coordinator?.viewStudentsLocations()
-                    self.setLoggingIn(false)
-            }
-            
-        }
-        }
-    }
-    
-    func getFacebookData() {
-        DispatchQueue.main.async {
-
-        if AccessToken.current != nil {
-            let tokenString = String(describing: AccessToken.current?.tokenString)
-            print(tokenString)
-           
-            GraphRequest(graphPath: "me", parameters: ["fields": "name"]).start { (connection, result, error) in
-                if error == nil {
-                    let dict = result as! [String: AnyObject] as NSDictionary
-                    let name = dict.object(forKey: "name") as! String
-                    
-                    OTMClient.Auth.firstName = name
-                } else {
-                    print(error?.localizedDescription ?? error ?? "")
-                }
-            }
-
-        }
-    }
+        setLoggingIn(false)
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
@@ -94,6 +57,13 @@ class LoginViewController: UIViewController, Storyboarded {
             UIApplication.shared.open(OTMClient.Endpoints.webSignUp.url, options: [:], completionHandler: nil)
         }
     }
+    
+    func addFacebookLoginButton() {
+        self.fbLoginButton.frame = CGRect(x: self.view.center.x - 160 , y: 560, width: 325, height: 45)
+        self.view.addSubview(self.fbLoginButton)
+//        self.fbLoginButton.addTarget(self, action: #selector(self.buttonAction(_:)), for: .touchUpInside)
+    }
+
     
     func setLoggingIn(_ loggingIn: Bool) {
         DispatchQueue.main.async {

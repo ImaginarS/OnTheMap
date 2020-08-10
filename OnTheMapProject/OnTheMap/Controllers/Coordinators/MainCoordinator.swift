@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import FacebookLogin
+import FacebookCore
 
 class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
-
+    
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -18,6 +20,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     }
     
     func start() {
+        navigationController.delegate = self
         DispatchQueue.main.async {
             let loginVC = LoginViewController.instantiate()
             loginVC.coordinator = self
@@ -45,4 +48,31 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             self.navigationController.pushViewController(tabBarVC,animated: false)
         }
     }
+
+    func getFacebookData() {
+        DispatchQueue.main.async {
+            
+            if AccessToken.current != nil {
+                let tokenString = String(describing: AccessToken.current?.tokenString)
+                print(tokenString)
+                
+                GraphRequest(graphPath: "me", parameters: ["fields": "name"]).start { (connection, result, error) in
+                    if error == nil {
+                        let dict = result as! [String: AnyObject] as NSDictionary
+                        let name = dict.object(forKey: "name") as! String
+                        self.viewStudentsLocations()
+                        OTMClient.Auth.firstName = name
+                    } else {
+                        print(error?.localizedDescription ?? error ?? "")
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
 }
+
+
+
