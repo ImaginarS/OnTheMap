@@ -22,9 +22,7 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        super.viewDidLoad()        
         fbLoginButton.delegate = self
         addFacebookLoginButton()
         setLoggingIn(false)
