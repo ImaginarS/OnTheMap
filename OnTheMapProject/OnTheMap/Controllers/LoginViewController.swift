@@ -11,36 +11,19 @@ import FacebookLogin
 import FacebookCore
 
 class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-            let login = LoginManager()
-            login.logOut()
-    }
-    
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        if let token = AccessToken.current,
-            !token.isExpired {
-            coordinator?.viewStudentsLocations()
-        } else {
-            fbLoginButton.permissions = [ "email"]
-            coordinator?.getFacebookData()
-        }
-
-    }
     
     var fbLoginButton = FBLoginButton()
     weak var coordinator: MainCoordinator?
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         fbLoginButton.delegate = self
         addFacebookLoginButton()
@@ -58,12 +41,27 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
         }
     }
     
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        let login = LoginManager()
+        login.logOut()
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let token = AccessToken.current,
+            !token.isExpired {
+            coordinator?.viewStudentsLocations()
+        } else {
+            fbLoginButton.permissions = [ "email"]
+            coordinator?.getFacebookData()
+        }
+        
+    }
+    
     func addFacebookLoginButton() {
         self.fbLoginButton.frame = CGRect(x: self.view.center.x - 160 , y: 560, width: 325, height: 45)
         self.view.addSubview(self.fbLoginButton)
-//        self.fbLoginButton.addTarget(self, action: #selector(self.buttonAction(_:)), for: .touchUpInside)
     }
-
+    
     
     func setLoggingIn(_ loggingIn: Bool) {
         DispatchQueue.main.async {
@@ -84,7 +82,7 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
         setLoggingIn(false)
         let alertVC = UIAlertController(title: "Login failed. Check your credentials and try again.", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-         self.present(alertVC, animated: true, completion: nil)
+        self.present(alertVC, animated: true, completion: nil)
         
     }
     
@@ -101,4 +99,4 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
         }
     }
 }
-    
+

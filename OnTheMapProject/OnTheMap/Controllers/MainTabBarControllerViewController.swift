@@ -27,10 +27,10 @@ class MainTabBarControllerViewController: UITabBarController, Storyboarded {
             DispatchQueue.main.async {
                 self.navigationController?.setNavigationBarHidden(true, animated: false)
                 self.navigationController?.popToRootViewController(animated: true)
-                let loginManager = LoginManager()
-                loginManager.logOut()
             }
         }
+        let loginManager = LoginManager()
+        loginManager.logOut()
     }
     
     @IBAction func addPin(_ sender: Any) {
