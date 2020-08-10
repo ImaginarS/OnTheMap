@@ -25,7 +25,8 @@ class MainTabBarControllerViewController: UITabBarController, Storyboarded {
         request.start()
         OTMClient.logout {
             DispatchQueue.main.async {
-                self.coordinator?.start()
+                self.navigationController?.setNavigationBarHidden(true, animated: false)
+                self.navigationController?.popToRootViewController(animated: true)
                 let loginManager = LoginManager()
                 loginManager.logOut()
             }
