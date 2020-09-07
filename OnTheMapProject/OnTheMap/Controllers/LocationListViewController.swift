@@ -21,12 +21,8 @@ class LocationListViewController: UITableViewController, Storyboarded  {
         
         OTMClient.getStudentsLocations() {(result, error) in
             if error != nil {
-                let alert = UIAlertController(title: "Fail", message: "sorry, we could not fetch data", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                print("error")
-                return
+                self.displayStudentLocationsNotFound()
             }
-            
             DispatchQueue.main.async {
                 self.location.lastFetched = result
                 self.tableView.reloadData()
@@ -52,8 +48,26 @@ class LocationListViewController: UITableViewController, Storyboarded  {
         
         let locations = location.lastFetched?[indexPath.row]
         cell.textLabel?.text = "\(locations?.firstName ?? "") \(locations?.lastName ?? "")"
-        cell.detailTextLabel?.text = locations?.mapString
+        cell.detailTextLabel?.text = "\(locations?.mapString ?? "")     URL:\(locations?.mediaURL ?? "")"
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let locations = location.lastFetched?[indexPath.row]
+        let mediaUrl = locations?.mediaURL
+        
+        if let mediaUrl = mediaUrl {
+            guard let url = URL(string: mediaUrl) else {
+                return
+            }
+            if  UIApplication.shared.canOpenURL(url) == true {
+                UIApplication.shared.open(url)
+            } else {
+                print("can't open \(url)")
+            }
+        }
+    }
 }
+
+

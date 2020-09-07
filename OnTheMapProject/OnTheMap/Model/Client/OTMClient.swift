@@ -35,12 +35,12 @@ class OTMClient {
         var stringValue: String {
             switch self {
                 
-                case .createSessionId: return Endpoints.base + "/session"
-                case .getUserData: return Endpoints.base + "/users/" + Auth.userID
-                case .getStudentsLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt"
-                case .webSignUp: return "https://auth.udacity.com/sign-up?next=https://classroom.udacity.com/authenticated"
-                case .postLocation: return Endpoints.base + "/StudentLocation"
-                case .updateLocation: return Endpoints.base + "/StudentLocation/\(Auth.objectId)"
+            case .createSessionId: return Endpoints.base + "/session"
+            case .getUserData: return Endpoints.base + "/users/" + Auth.userID
+            case .getStudentsLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt&limit=100"
+            case .webSignUp: return "https://auth.udacity.com/sign-up?next=https://classroom.udacity.com/authenticated"
+            case .postLocation: return Endpoints.base + "/StudentLocation"
+            case .updateLocation: return Endpoints.base + "/StudentLocation/\(Auth.objectId)"
             }
         }
         var url: URL {

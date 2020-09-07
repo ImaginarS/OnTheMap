@@ -25,9 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, Storyboarded {
         OTMClient.getStudentsLocations() {(result, error) in
             DispatchQueue.main.async {
                 if error != nil {
-                    let alert = UIAlertController(title: "Fail", message: "sorry, we could not fetch data", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    print("error")
+                    self.displayStudentLocationsNotFound()
                     return
                 }
                 
