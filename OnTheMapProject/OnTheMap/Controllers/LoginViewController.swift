@@ -60,14 +60,12 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
         self.view.addSubview(self.fbLoginButton)
     }
     
-    
     func setLoggingIn(_ loggingIn: Bool) {
         DispatchQueue.main.async {
             if loggingIn {
                 self.activityIndicator.startAnimating()
             } else {
                 self.activityIndicator.stopAnimating()
-                self.activityIndicator.hidesWhenStopped = true
             }
             self.emailTextField.isEnabled = !loggingIn
             self.passwordTextField.isEnabled = !loggingIn
@@ -76,13 +74,6 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
         }
     }
     
-    func showLoginFailure(message: String) {
-        setLoggingIn(false)
-        let alertVC = UIAlertController(title: "Login failed. Check your credentials and try again.", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
-        
-    }
     
     func handleLoginResponse(success: Bool, error: Error?) {
         if success {
@@ -92,7 +83,7 @@ class LoginViewController: UIViewController, Storyboarded, LoginButtonDelegate {
         else {
             DispatchQueue.main.async {
                 self.setLoggingIn(false)
-                self.showLoginFailure(message: error?.localizedDescription ?? "")
+                self.alertDisplayLoginFailure()
             }
         }
     }

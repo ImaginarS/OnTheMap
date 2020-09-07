@@ -11,14 +11,13 @@ import MapKit
 import CoreLocation
 
 class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboarded {
+    
     weak var coordinator: MainCoordinator?
     var objectId: String?
     var model: UserData?
     @IBOutlet weak var linkErrorText: UILabel!
     @IBOutlet weak var locationErrorText: UILabel!
     @IBOutlet weak var findLocationButton: UIButton!
-    
-    
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var enterWebsiteLink: UITextField!
@@ -48,7 +47,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
             return
         }
         geocodePosition(location: newLocation)
-         
+        
     }
     
     
@@ -84,7 +83,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     private func loadNewLocation(_ coordinate: CLLocationCoordinate2D) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "FinishAddingLocationViewController") as! FinishAddingLocationViewController
         controller.studentInfo = buildUserInfo(coordinate)
-       
+        
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -92,7 +91,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         let userInfo = NewLocation.init(uniqueKey: OTMClient.Auth.userID, firstName: OTMClient.Auth.firstName, lastName: OTMClient.Auth.lastName, mapString: locationText.text!, mediaURL: enterWebsiteLink.text!, latitude: coordinate.latitude, longitude: coordinate.longitude)
         return userInfo
     }
-
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard enterWebsiteLink.text?.isValidURL == true else {

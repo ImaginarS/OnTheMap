@@ -38,17 +38,8 @@ class MainTabBarControllerViewController: UITabBarController, Storyboarded {
         if OTMClient.Auth.objectId == "" {
             coordinator?.viewAddLocationVC()
         }
-            
         else {
-            let alert = UIAlertController(title: "", message: "You have already posted a student location. Would you like to overwrite the location?", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Overwrite", style: UIAlertAction.Style.destructive, handler:  { action in
-                DispatchQueue.main.async {
-                    let addLocationVC = AddLocationViewController.instantiate()
-                     self.navigationController?.pushViewController(addLocationVC,animated: true)
-                }
-            }))
-            self.present(alert, animated: true, completion: nil)
+            alertDisplayOverwriteLocation()
         }
     }
     
