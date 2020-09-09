@@ -21,11 +21,14 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var enterWebsiteLink: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationText.delegate = self
         enterWebsiteLink.delegate = self
+        callInProgress(location: false
+        )
         
         model = OTMClient.Auth.model
         
@@ -43,6 +46,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     
     @IBAction func findLocationButton(_ sender: Any) {
+        callInProgress(location: true)
         guard let newLocation = locationText.text else {
             return
         }
@@ -61,12 +65,13 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     private func processResponse(withPlacemarks newMarker: [CLPlacemark]?, error: Error?) {
         if error != nil {
+            callInProgress(location: false)
             print(error?.localizedDescription ?? "")
             locationErrorText.text = "Unable to find location."
-            print("alert alert")
             locationErrorText.isHidden = false
             return
         } else {
+            callInProgress(location: true)
             var location: CLLocation?
             if let marker = newMarker, marker.count > 0 {
                 location = marker.first?.location
@@ -74,6 +79,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
             if let location = location {
                 self.loadNewLocation(location.coordinate)
             } else {
+                callInProgress(location: false)
                 locationText.text = "No Matching Location Found"
             }
             
@@ -103,5 +109,18 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate, Storyboa
         linkErrorText.isHidden = true
         findLocationButton.isEnabled = true
         return
+    }
+    
+    func callInProgress(location: Bool) {
+        DispatchQueue.main.async {
+            if location {
+                self.findLocationButton.isEnabled = false
+                self.activityIndicator.startAnimating()
+            } else {
+                self.findLocationButton.isEnabled = true
+                self.activityIndicator.stopAnimating()
+            }
+            self.activityIndicator.hidesWhenStopped = true
+        }
     }
 }
